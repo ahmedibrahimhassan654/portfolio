@@ -12,6 +12,7 @@ import {
   CloudCog,
   Database,
   FlaskConical,
+  Globe,
   GraduationCap,
   Hexagon,
   LayoutDashboard,
@@ -32,7 +33,7 @@ import {
   Triangle,
   Wind,
 } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from '@/components/icons'
+import { LinkedinIcon } from '@/components/icons'
 
 export const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_URL ?? ''
 export const WHATSAPP_MESSAGE =
@@ -121,7 +122,7 @@ export const profile = {
     { label: 'Mobile', value: '01501158003', href: 'tel:+201501158003' },
     { label: 'Mobile 2', value: '01040100788', href: 'tel:+201040100788' },
   ],
-  portfolio: 'https://ahmedwebdev.netlify.app/',
+  portfolio: 'https://portfolio-gules-two-d8kt6mg2gz.vercel.app/',
   linkedin: 'https://linkedin.com/in/ahmed-ibrahim5588',
   resume: '/Ahmed-Ibrahim-CV.pdf',
   avatar: '/profile.jpg',
@@ -163,10 +164,10 @@ export const socials: Social[] = [
     icon: LinkedinIcon,
   },
   {
-    label: 'GitHub',
-    value: 'Portfolio & projects',
+    label: 'Portfolio',
+    value: 'portfolio-gules-two.vercel.app',
     href: profile.portfolio,
-    icon: GithubIcon,
+    icon: Globe,
   },
   {
     label: 'Location',
