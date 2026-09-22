@@ -99,11 +99,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-4 flex min-h-[2.5rem] items-center font-mono text-lg font-semibold text-text-muted sm:text-2xl"
+            className="mt-4 flex min-h-10 items-center font-mono text-lg font-semibold text-text-muted sm:text-2xl"
           >
             <span className="mr-2 text-indigo-400">&gt;</span>
             <span className="text-gradient">{roleText}</span>
-            <span className="ml-1 inline-block h-6 w-[2px] animate-pulse bg-fuchsia-500 sm:h-7" />
+            <span className="ml-1 inline-block h-6 w-0.5 animate-pulse bg-fuchsia-500 sm:h-7" />
           </motion.div>
 
           <motion.p
@@ -123,7 +123,7 @@ export function Hero() {
           >
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-[length:200%_200%] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 transition-all hover:bg-right"
+              className="group inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-size-[200%_200%] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 transition-all hover:bg-right"
             >
               View my work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -172,10 +172,10 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative mx-auto w-full max-w-sm"
         >
-          <div className="absolute inset-0 -z-10 rounded-[2.5rem] bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500 opacity-30 blur-3xl" />
+          <div className="absolute inset-0 -z-10 rounded-[2.5rem] bg-linear-to-br from-indigo-500 via-violet-500 to-fuchsia-500 opacity-30 blur-3xl" />
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-surface p-3 glow">
-            <div className="aspect-square overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500">
+          <div className="relative overflow-hidden rounded-4xl border border-border bg-surface p-3 glow">
+            <div className="aspect-square overflow-hidden rounded-3xl bg-linear-to-br from-indigo-500 via-violet-500 to-fuchsia-500">
               <img
                 src={profile.avatar}
                 alt={profile.name}
