@@ -33,7 +33,7 @@ import {
   Triangle,
   Wind,
 } from 'lucide-react'
-import { LinkedinIcon } from '@/components/icons'
+import { GithubIcon, LinkedinIcon } from '@/components/icons'
 
 export const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_URL ?? ''
 export const WHATSAPP_MESSAGE =
@@ -80,6 +80,11 @@ export type ExperienceItem = {
   roles: ExperienceRole[]
 }
 
+export type ArchitectureStep = {
+  label: string
+  detail: string
+}
+
 export type Project = {
   title: string
   subtitle: string
@@ -87,6 +92,7 @@ export type Project = {
   href: string
   image: string
   tags: string[]
+  architecture?: ArchitectureStep[]
   featured?: boolean
 }
 
@@ -98,7 +104,38 @@ export type EducationItem = {
   icon: LucideIcon
 }
 
-export const profile = {
+export type ContactMethod = {
+  label: string
+  value: string
+  href: string
+}
+
+export type Profile = {
+  name: string
+  firstName: string
+  role: string
+  roles: string[]
+  tagline: string
+  summary: string
+  summarySecondary: string
+  years: string
+  location: string
+  availability: string
+  email: string
+  phones: ContactMethod[]
+  portfolio: string
+  linkedin: string
+  github: string
+  resume: string
+  avatar: string
+}
+
+export type Stat = {
+  label: string
+  value: string
+}
+
+export const profile: Profile = {
   name: 'Ahmed Ibrahim',
   firstName: 'Ahmed',
   role: 'Full Stack MERN Developer',
@@ -111,9 +148,9 @@ export const profile = {
   tagline:
     'I design and ship scalable, end-to-end web applications — from pixel-perfect interfaces to secure, production-ready APIs.',
   summary:
-    'Results-driven Full-Stack MERN Developer with over 5 years of experience designing and deploying robust, end-to-end web applications. Proficient in MongoDB, Express.js, React.js, and Node.js, with a deep understanding of both client-side experiences and server-side architecture. Adept at translating business requirements into scalable systems, with a portfolio of real-world projects including transportation booking platforms, car rental systems, and multivendor ecommerce applications.',
+    'Full-Stack MERN Developer with 5+ years of experience designing and deploying scalable, end-to-end web applications, combined with hands-on Linux System Administration and AWS cloud deployment. Proficient in MongoDB, Express.js, React.js, and Node.js, with strong command of Next.js, Tailwind CSS, and Material UI.',
   summarySecondary:
-    'Strong command of frontend development using React.js, Next.js, Tailwind CSS, and Material UI, focusing on responsive, intuitive, and accessible user interfaces. Equally skilled in backend development, implementing RESTful APIs, authentication (JWT, social login), role-based permissions, and MongoDB sharding for high scalability. Experienced in Linux, AWS EC2 deployment, and server optimization — passionate about building real-world solutions with clean code, performance-first thinking, and a business-oriented mindset.',
+    'Experienced in RESTful APIs, JWT/OAuth authentication, role-based access control, and MongoDB sharding, alongside Linux (CentOS/RedHat) administration and AWS EC2 deployment with PM2 and Nginx. Open to relocation and seeking employer visa sponsorship (Canada Global Talent Stream / Australia Subclass 482).',
   years: '5+',
   location: 'Elobour City, Cairo, Egypt',
   availability: 'Open to new opportunities',
@@ -124,6 +161,7 @@ export const profile = {
   ],
   portfolio: 'https://portfolio-gules-two-d8kt6mg2gz.vercel.app/',
   linkedin: 'https://linkedin.com/in/ahmed-ibrahim5588',
+  github: 'https://github.com/ahmedibrahimhassan654',
   resume: '/Ahmed-Ibrahim-CV.pdf',
   avatar: '/profile.jpg',
 }
@@ -164,6 +202,12 @@ export const socials: Social[] = [
     icon: LinkedinIcon,
   },
   {
+    label: 'GitHub',
+    value: 'ahmedibrahimhassan654',
+    href: profile.github,
+    icon: GithubIcon,
+  },
+  {
     label: 'Portfolio',
     value: 'portfolio-gules-two.vercel.app',
     href: profile.portfolio,
@@ -177,7 +221,7 @@ export const socials: Social[] = [
   },
 ]
 
-export const stats = [
+export const stats: Stat[] = [
   { label: 'Years of experience', value: '5+' },
   { label: 'Production projects', value: '10+' },
   { label: 'Stack focus', value: 'MERN' },
@@ -196,7 +240,7 @@ export const skillGroups: SkillGroup[] = [
       { name: 'TypeScript', icon: Braces },
       { name: 'Tailwind CSS', icon: Wind },
       { name: 'Material UI', icon: Palette },
-      { name: 'Responsive Design', icon: Smartphone },
+      { name: 'Responsive Web Design', icon: Smartphone },
     ],
   },
   {
@@ -243,10 +287,10 @@ export const experience: ExperienceItem[] = [
         title: 'Linux System Administrator — Radar Systems',
         type: 'Full-time',
         bullets: [
-          'Administered and maintained Linux-based systems (CentOS/RedHat) supporting radar surveillance platforms and real-time air navigation infrastructure.',
-          'Ensured system security, uptime, and performance for critical radar computing units (SDPS), with a focus on redundancy and disaster recovery.',
-          'Collaborated with radar and air traffic teams to integrate Linux servers with surveillance sensors (PSR, SSR, ADS-B, MLAT, Mode-S).',
-          'Diagnosed and resolved system-level issues, implemented patches, and documented procedures in line with aviation safety standards.',
+          'Administered mission-critical Linux servers (CentOS/RedHat) supporting real-time radar surveillance platforms (SDPS) with high availability and disaster recovery standards.',
+          'Monitored system security, uptime, and performance across critical radar computing units, proactively applying patches and hardening.',
+          'Collaborated with radar and air traffic control teams to integrate Linux servers with surveillance sensors (PSR, SSR, ADS-B, MLAT, Mode-S).',
+          'Diagnosed and resolved system-level incidents and documented operational procedures aligned with aviation safety standards.',
         ],
       },
     ],
@@ -262,9 +306,9 @@ export const experience: ExperienceItem[] = [
         title: 'Node.js Backend Developer',
         type: 'Contractor',
         bullets: [
-          'Built server-side logic for chat applications using Socket.IO with Express.js and MongoDB.',
-          'Deployed the application to an AWS EC2 production Linux server using PM2.',
-          'Cooperated closely with the client-side mobile app developer to align APIs and data contracts.',
+          'Engineered real-time chat architecture using Socket.IO, Express.js, and MongoDB, maintaining active WebSocket connections with low latency.',
+          'Deployed the application to an AWS EC2 production Linux server using PM2 process management for continuous uptime.',
+          'Partnered with the client-side mobile developer to define and align REST API contracts and data models.',
         ],
       },
       {
@@ -290,9 +334,9 @@ export const experience: ExperienceItem[] = [
         title: 'Node.js Backend Developer',
         type: 'Part-time',
         bullets: [
-          'Designed and developed a modular, secure backend architecture with Node.js, Express.js, and MongoDB for a dynamic car rental platform.',
-          'Implemented core features including rental scheduling, pricing calculations, driver-client roles, and admin commission handling.',
-          'Ensured system scalability, data validation, and API security using best practices for authentication, authorization, and input sanitization.',
+          'Architected a modular, secure backend with Node.js, Express.js, and MongoDB for a dynamic car rental platform.',
+          'Implemented core features including rental scheduling, dynamic pricing calculations, driver-client roles, and admin commission handling.',
+          'Hardened API security through authentication, authorization, and input sanitization, while ensuring scalability and data validation.',
           'Delivered fully documented RESTful APIs, enabling smooth integration with frontend and mobile teams.',
         ],
       },
@@ -302,7 +346,7 @@ export const experience: ExperienceItem[] = [
         bullets: [
           'Developed and maintained high-performance server-side applications using Node.js and Express.',
           'Built an automotive listings platform with advanced filtering and search capabilities.',
-          'Designed and implemented secure, validated APIs for an ecommerce application similar to Dubizzle.',
+          'Designed and implemented secure, validated APIs for an Ecommerce application (similar to Dubizzle).',
         ],
       },
     ],
@@ -322,7 +366,7 @@ export const experience: ExperienceItem[] = [
           'Implemented role-based access control (RBAC) for admins, managers, and employees to manage ticket creation, assignment, and resolution workflows.',
           'Built dynamic frontend interfaces with React (Next.js) and Tailwind CSS, ensuring responsive UI/UX for internal users.',
           'Created secure RESTful APIs with Express.js including ticket status updates, notifications, and department-based filtering.',
-          'Deployed the app to a free, fast cloud environment (Netlify) with environment-based configuration and JWT/cookie authentication.',
+          'Deployed the application to a fast cloud environment (Netlify) with environment-based configuration and JWT/cookie authentication.',
         ],
       },
     ],
@@ -338,6 +382,12 @@ export const projects: Project[] = [
     href: 'https://educenter-frontend.vercel.app/',
     image: '/projects/school.svg',
     tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+    architecture: [
+      { label: 'Compute', detail: 'Deployed on AWS EC2' },
+      { label: 'Process', detail: 'PM2 process management for reliable uptime' },
+      { label: 'Proxy', detail: 'Nginx reverse proxy with TLS termination' },
+      { label: 'Config', detail: 'Environment-variable based configuration per environment' },
+    ],
   },
   {
     title: 'Sky Line',
@@ -347,15 +397,27 @@ export const projects: Project[] = [
     href: 'https://skylinerental.net/',
     image: '/projects/skyline.svg',
     tags: ['React', 'Express', 'MongoDB', 'AWS'],
+    architecture: [
+      { label: 'Compute', detail: 'Deployed on AWS EC2' },
+      { label: 'Process', detail: 'PM2 process management for zero-downtime restarts' },
+      { label: 'Proxy', detail: 'Nginx reverse proxy with TLS termination' },
+      { label: 'Config', detail: 'Environment-variable based configuration per environment' },
+    ],
   },
   {
     title: 'BeirutMart',
     subtitle: 'Multi-Vendor Ecommerce Platform',
     description:
-      'A multivendor ecommerce marketplace with vendor onboarding, product catalogs, advanced search, secure checkout and validated APIs.',
+      'A multi-vendor Ecommerce marketplace with vendor onboarding, product catalogs, advanced search, secure checkout and validated APIs.',
     href: 'https://beirutmart.com/',
     image: '/projects/beirutmart.svg',
     tags: ['Next.js', 'Node.js', 'MongoDB', 'REST API'],
+    architecture: [
+      { label: 'Compute', detail: 'Deployed on AWS EC2' },
+      { label: 'Process', detail: 'PM2 process management for zero-downtime restarts' },
+      { label: 'Proxy', detail: 'Nginx reverse proxy with TLS termination' },
+      { label: 'Config', detail: 'Environment-variable based configuration per environment' },
+    ],
     featured: true,
   },
   {
@@ -366,6 +428,12 @@ export const projects: Project[] = [
     href: 'https://ezo-app.netlify.app',
     image: '/projects/ezo.svg',
     tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+    architecture: [
+      { label: 'Compute', detail: 'Deployed on AWS EC2' },
+      { label: 'Process', detail: 'PM2 process management for zero-downtime restarts' },
+      { label: 'Proxy', detail: 'Nginx reverse proxy with TLS termination' },
+      { label: 'Config', detail: 'Environment-variable based configuration per environment' },
+    ],
     featured: true,
   },
   {
@@ -381,7 +449,7 @@ export const projects: Project[] = [
 
 export const education: EducationItem[] = [
   {
-    degree: 'Bachelor’s Degree in Electronics & Communication Engineering',
+    degree: 'Bachelor of Engineering in Electronics & Communication',
     school: 'El Shorouk Academy',
     period: '2007 – 2012',
     description:

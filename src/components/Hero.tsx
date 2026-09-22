@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowRight, Atom, Database, Download, MessageCircle, Server, Sparkles } from 'lucide-react'
+import {
+  ArrowRight,
+  Atom,
+  Database,
+  Download,
+  MessageCircle,
+  Server,
+  Sparkles,
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { profile, stats, whatsappLink } from '@/data/portfolio'
 
 function useTypewriter(words: string[]) {
@@ -37,7 +46,14 @@ function useTypewriter(words: string[]) {
   return text
 }
 
-const floatingBadges = [
+type FloatingBadge = {
+  label: string
+  icon: LucideIcon
+  position: string
+  delay: string
+}
+
+const floatingBadges: FloatingBadge[] = [
   { label: 'React', icon: Atom, position: 'top-6 -left-4 sm:-left-8', delay: '0s' },
   { label: 'Node.js', icon: Server, position: 'top-1/2 -right-4 sm:-right-8', delay: '-2s' },
   { label: 'MongoDB', icon: Database, position: '-bottom-4 left-6', delay: '-4s' },
@@ -49,7 +65,11 @@ export function Hero() {
   const roleText = prefersReduced ? profile.roles[0] : typed
 
   return (
-    <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section
+      id="home"
+      aria-labelledby="hero-heading"
+      className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
+    >
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
           <motion.span
@@ -66,6 +86,7 @@ export function Hero() {
           </motion.span>
 
           <motion.h1
+            id="hero-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}

@@ -5,9 +5,10 @@ import { profile, socials, whatsappLink } from '@/data/portfolio'
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 py-20 sm:py-28">
+    <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading
+          id="contact-heading"
           eyebrow="Contact"
           title="Let's build something"
           highlight="great together"

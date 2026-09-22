@@ -1,6 +1,7 @@
 import { Reveal } from '@/components/Reveal'
 
 type SectionHeadingProps = {
+  id?: string
   eyebrow: string
   title: string
   highlight?: string
@@ -9,6 +10,7 @@ type SectionHeadingProps = {
 }
 
 export function SectionHeading({
+  id,
   eyebrow,
   title,
   highlight,
@@ -23,7 +25,10 @@ export function SectionHeading({
         <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500" />
         {eyebrow}
       </span>
-      <h2 className="max-w-3xl text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl">
+      <h2
+        id={id}
+        className="max-w-3xl text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl"
+      >
         {title} {highlight ? <span className="text-gradient">{highlight}</span> : null}
       </h2>
       {description ? (

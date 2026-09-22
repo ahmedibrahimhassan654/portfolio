@@ -23,7 +23,7 @@ function ScrollProgress() {
     <motion.div
       style={{ scaleX }}
       aria-hidden="true"
-      className="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
+      className="fixed inset-x-0 top-0 z-60 h-0.5 origin-left bg-linear-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
     />
   )
 }

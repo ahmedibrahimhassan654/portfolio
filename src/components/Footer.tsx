@@ -21,10 +21,13 @@ export function Footer() {
             <p className="font-mono text-xs text-text-muted">{profile.location}</p>
           </div>
 
-          <div>
-            <h3 className="mb-4 font-display text-sm font-bold tracking-widest text-text uppercase">
+          <nav aria-labelledby="footer-navigate">
+            <h2
+              id="footer-navigate"
+              className="mb-4 font-display text-sm font-bold tracking-widest text-text uppercase"
+            >
               Navigate
-            </h3>
+            </h2>
             <ul className="space-y-2.5">
               {navItems.map((item) => (
                 <li key={item.id}>
@@ -37,12 +40,15 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h3 className="mb-4 font-display text-sm font-bold tracking-widest text-text uppercase">
+          <nav aria-labelledby="footer-connect">
+            <h2
+              id="footer-connect"
+              className="mb-4 font-display text-sm font-bold tracking-widest text-text uppercase"
+            >
               Connect
-            </h3>
+            </h2>
             <ul className="space-y-2.5">
               {socials.slice(0, 4).map((social) => (
                 <li key={social.label}>
@@ -52,13 +58,13 @@ export function Footer() {
                     rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="inline-flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-indigo-400"
                   >
-                    <social.icon className="h-4 w-4" />
+                    <social.icon className="h-4 w-4" aria-hidden="true" />
                     {social.label}
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">

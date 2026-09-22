@@ -1,0 +1,241 @@
+:root {
+  --ink: #1a1a1f;
+  --muted: #4b5563;
+  --line: #d1d5db;
+  --accent: #4f46e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  font-family: Calibri, 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.page {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.name {
+  margin: 0;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.role {
+  margin: 2px 0 6px;
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.contact {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--muted);
+}
+
+.contact a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.contact span + span::before {
+  content: '  •  ';
+  color: var(--line);
+}
+
+/* Sections */
+section {
+  margin-bottom: 13px;
+}
+
+.page > section:last-child {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 11pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+}
+
+p {
+  margin: 0 0 6px;
+}
+
+/* Skills */
+.skills {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  row-gap: 3px;
+  column-gap: 10px;
+  font-size: 10pt;
+}
+
+.skills dt {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.skills dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Experience */
+.job {
+  margin-bottom: 11px;
+  break-inside: avoid;
+}
+
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.job-company {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 700;
+}
+
+.job-meta {
+  font-size: 9pt;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.job-context {
+  margin: 1px 0 4px;
+  font-size: 9.5pt;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.role {
+  margin: 5px 0 3px;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.role .type {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+ul {
+  margin: 3px 0 0;
+  padding-left: 16px;
+}
+
+li {
+  margin-bottom: 2px;
+}
+
+/* Education */
+.edu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.edu-degree {
+  margin: 0;
+  font-size: 10.5pt;
+  font-weight: 700;
+}
+
+.edu-meta {
+  font-size: 9pt;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Projects */
+.project {
+  margin-bottom: 9px;
+  break-inside: avoid;
+}
+
+.project:last-child {
+  margin-bottom: 0;
+}
+
+.project-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 8px;
+  row-gap: 1px;
+}
+
+.proj-title {
+  margin: 0;
+  font-size: 10.5pt;
+  font-weight: 700;
+}
+
+.proj-sub {
+  font-size: 9.5pt;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.proj-link {
+  margin-left: auto;
+  font-size: 9pt;
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.proj-desc {
+  margin: 1px 0 0;
+}
+
+.proj-tags,
+.proj-arch {
+  margin: 1px 0 0;
+  font-size: 9.5pt;
+  color: var(--muted);
+}
+
+.proj-tags strong,
+.proj-arch strong {
+  color: var(--ink);
+}
+
+@page {
+  size: A4;
+  margin: 14mm 15mm;
+}

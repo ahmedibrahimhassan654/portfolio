@@ -6,9 +6,10 @@ const marqueeSkills = skillGroups.flatMap((group) => group.skills.map((skill) =>
 
 export function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 py-20 sm:py-28">
+    <section id="skills" aria-labelledby="skills-heading" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading
+          id="skills-heading"
           eyebrow="Skills"
           title="The tools I use to"
           highlight="ship results"

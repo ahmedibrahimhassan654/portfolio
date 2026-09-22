@@ -1,9 +1,16 @@
 import { CheckCircle2, Rocket, ShieldCheck, Sparkles, Workflow } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { profile, socials, stats } from '@/data/portfolio'
 
-const highlights = [
+type Highlight = {
+  icon: LucideIcon
+  title: string
+  text: string
+}
+
+const highlights: Highlight[] = [
   {
     icon: Workflow,
     title: 'End-to-end delivery',
@@ -23,9 +30,10 @@ const highlights = [
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-20 sm:py-28">
+    <section id="about" aria-labelledby="about-heading" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading
+          id="about-heading"
           eyebrow="About me"
           title="Turning ideas into"
           highlight="production software"
