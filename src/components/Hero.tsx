@@ -4,12 +4,12 @@ import {
   ArrowRight,
   Atom,
   Database,
-  Download,
   MessageCircle,
   Server,
   Sparkles,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { DownloadCvButton } from '@/components/DownloadCvButton'
 import { profile, stats, whatsappLink } from '@/data/portfolio'
 
 function useTypewriter(words: string[]) {
@@ -128,14 +128,7 @@ export function Hero() {
               View my work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a
-              href={profile.resume}
-              download
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-text transition-colors hover:border-indigo-400/60 hover:text-indigo-400"
-            >
-              <Download className="h-4 w-4" />
-              Download CV
-            </a>
+            <DownloadCvButton />
             {whatsappLink ? (
               <a
                 href={whatsappLink}

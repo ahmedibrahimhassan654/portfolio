@@ -1,3 +1,4 @@
+import { DownloadCvButton } from '@/components/DownloadCvButton'
 import { Reveal } from '@/components/Reveal'
 
 type SectionHeadingProps = {
@@ -7,6 +8,7 @@ type SectionHeadingProps = {
   highlight?: string
   description?: string
   align?: 'left' | 'center'
+  showCv?: boolean
 }
 
 export function SectionHeading({
@@ -16,6 +18,7 @@ export function SectionHeading({
   highlight,
   description,
   align = 'center',
+  showCv = true,
 }: SectionHeadingProps) {
   const alignment = align === 'center' ? 'items-center text-center' : 'items-start text-left'
 
@@ -34,6 +37,7 @@ export function SectionHeading({
       {description ? (
         <p className="max-w-2xl text-base leading-relaxed text-text-muted sm:text-lg">{description}</p>
       ) : null}
+      {showCv ? <DownloadCvButton className="mt-2" /> : null}
     </Reveal>
   )
 }

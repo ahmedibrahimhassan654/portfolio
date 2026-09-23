@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Menu, MessageCircle, X } from 'lucide-react'
+import { DownloadCvButton } from '@/components/DownloadCvButton'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { navItems, profile, whatsappLink } from '@/data/portfolio'
 
@@ -88,6 +89,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          <DownloadCvButton size="sm" className="hidden sm:inline-flex" />
           {whatsappLink ? (
             <a
               href={whatsappLink}
@@ -153,6 +155,9 @@ export function Navbar() {
                   </a>
                 </li>
               ) : null}
+              <li className="pt-2" onClick={() => setOpen(false)}>
+                <DownloadCvButton className="w-full justify-center rounded-xl" />
+              </li>
               <li className="px-4 pt-2 pb-1">
                 <span className="font-mono text-xs text-text-muted">{profile.location}</span>
               </li>
