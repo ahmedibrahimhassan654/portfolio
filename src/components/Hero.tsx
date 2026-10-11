@@ -9,7 +9,6 @@ import {
   Sparkles,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { DownloadCvButton } from '@/components/DownloadCvButton'
 import { profile, stats, whatsappLink } from '@/data/portfolio'
 
 function useTypewriter(words: string[]) {
@@ -128,7 +127,6 @@ export function Hero() {
               View my work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <DownloadCvButton />
             {whatsappLink ? (
               <a
                 href={whatsappLink}

@@ -32,6 +32,10 @@ import {
   Terminal,
   Triangle,
   Wind,
+  Bot,
+  Brain,
+  Cpu,
+  Sparkles,
 } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from '@/components/icons'
 
@@ -118,6 +122,7 @@ export type Profile = {
   tagline: string
   summary: string
   summarySecondary: string
+  summaryHighlights?: string[]
   years: string
   location: string
   availability: string
@@ -144,13 +149,21 @@ export const profile: Profile = {
     'React & Next.js Specialist',
     'Node.js Backend Engineer',
     'Linux System Administrator',
+    'AI Application Developer',
   ],
   tagline:
-    'I design and ship scalable, end-to-end web applications — from pixel-perfect interfaces to secure, production-ready APIs.',
+    'I design and ship scalable, end-to-end web applications — from pixel-perfect interfaces to secure, production-ready APIs, now enhanced with practical AI features.',
   summary:
-    'Full-Stack MERN Developer with 5+ years of experience designing and deploying scalable, end-to-end web applications, combined with hands-on Linux System Administration and AWS cloud deployment. Proficient in MongoDB, Express.js, React.js, and Node.js, with strong command of Next.js, Tailwind CSS, and Material UI.',
+    'Full-Stack MERN Developer with 5+ years of experience designing and deploying scalable, end-to-end web applications, combined with hands-on Linux System Administration and AWS cloud deployment. Proficient in MongoDB, Express.js, React.js, and Node.js, with strong command of Next.js, Tailwind CSS, and Material UI. Now engineering production-ready, full-stack applications enhanced with practical AI features such as intelligent AI chatbots and automated content/review summarizers.',
   summarySecondary:
-    'Experienced in RESTful APIs, JWT/OAuth authentication, role-based access control, and MongoDB sharding, alongside Linux (CentOS/RedHat) administration and AWS EC2 deployment with PM2 and Nginx. Open to relocation and seeking employer visa sponsorship (Canada Global Talent Stream / Australia Subclass 482).',
+    'I specialize in crafting robust, scalable, and intelligent web applications tailored to meet business goals. My core expertise combines Node.js, Express.js, MongoDB, and modern frontend frameworks like React.js with cutting-edge Generative AI integration to deliver end-to-end solutions that elevate user experiences and drive results.',
+  summaryHighlights: [
+    'Practical AI Solutions: Working with Large Language Models (LLMs), prompt engineering, token management, and running open-source models locally using Ollama and Hugging Face.',
+    'Expert Technical Skills: Proficient in JavaScript, TypeScript, React.js, Node.js, Prisma, REST APIs, and Real-Time Applications (Socket.io).',
+    'Modern Frontend: Building intuitive designs using Tailwind CSS, shadcn/ui, and responsive web practices.',
+    'Secure & Scalable Backend: Implementing secure coding practices, reliable REST APIs, JWT/OAuth authentication, role-based access control, and efficient data management with MongoDB sharding.',
+    'DevOps & Infrastructure: Linux (CentOS/RedHat) administration, AWS EC2 deployment, PM2 process management, Nginx reverse proxy.',
+  ],
   years: '5+',
   location: 'Elobour City, Cairo, Egypt',
   availability: 'Open to new opportunities',
@@ -239,6 +252,7 @@ export const skillGroups: SkillGroup[] = [
       { name: 'Next.js', icon: Triangle },
       { name: 'TypeScript', icon: Braces },
       { name: 'Tailwind CSS', icon: Wind },
+      { name: 'shadcn/ui', icon: Sparkles },
       { name: 'Material UI', icon: Palette },
       { name: 'Responsive Web Design', icon: Smartphone },
     ],
@@ -251,12 +265,28 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: 'Node.js', icon: Hexagon },
       { name: 'Express.js', icon: Route },
+      { name: 'Bun', icon: Cpu },
       { name: 'MongoDB', icon: Database },
       { name: 'REST APIs', icon: Plug },
       { name: 'JWT & OAuth', icon: ShieldCheck },
       { name: 'Socket.IO', icon: Radio },
       { name: 'Postman', icon: FlaskConical },
       { name: 'Role-Based Access', icon: Lock },
+      { name: 'Prisma ORM', icon: Database },
+    ],
+  },
+  {
+    title: 'AI & Machine Learning',
+    description: 'Building intelligent features with LLMs and generative AI.',
+    icon: Brain,
+    accent: 'from-emerald-500 to-teal-500',
+    skills: [
+      { name: 'LLMs & Prompt Engineering', icon: Bot },
+      { name: 'Generative AI Integration', icon: Sparkles },
+      { name: 'Local Model Integration (Ollama)', icon: Cpu },
+      { name: 'Hugging Face Models', icon: Brain },
+      { name: 'AI Chatbots', icon: Bot },
+      { name: 'Content Summarization', icon: Sparkles },
     ],
   },
   {
@@ -375,6 +405,22 @@ export const experience: ExperienceItem[] = [
 
 export const projects: Project[] = [
   {
+    title: 'AI Chat Bot',
+    subtitle: 'Full-Stack AI-Powered Chat Application',
+    description:
+      'A full-stack AI chat application with real-time streaming responses, local LLM integration via Ollama, and modern tooling (Bun, Prisma, shadcn/ui). Features intelligent conversation handling, context awareness, and a clean, responsive UI.',
+    href: 'https://github.com/ahmedibrahimhassan654/ai-chat-bot',
+    image: '/projects/ai-chat.svg',
+    tags: ['React', 'Bun', 'Prisma', 'Ollama', 'shadcn/ui', 'Tailwind CSS'],
+    architecture: [
+      { label: 'Runtime', detail: 'Bun for fast TypeScript execution' },
+      { label: 'Database', detail: 'Prisma ORM with PostgreSQL' },
+      { label: 'AI', detail: 'Local LLM inference via Ollama' },
+      { label: 'UI', detail: 'shadcn/ui with Tailwind CSS' },
+    ],
+    featured: true,
+  },
+  {
     title: 'EduCenter',
     subtitle: 'School Management System',
     description:
@@ -455,6 +501,24 @@ export const education: EducationItem[] = [
     description:
       'A five-year college program focused on the conceptualization, design, and development of electronic, computer and communication products, systems, services and processes.',
     icon: GraduationCap,
+  },
+]
+
+export type Certification = {
+  title: string
+  instructor: string
+  platform: string
+  date: string
+  credentialUrl: string
+}
+
+export const certifications: Certification[] = [
+  {
+    title: 'Build Full-Stack AI-Powered Apps',
+    instructor: 'Mosh Hamedani',
+    platform: 'Udemy',
+    date: 'October 10, 2026',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-af99ffbc-40a1-4829-b5c5-1ef28509c4ae/',
   },
 ]
 

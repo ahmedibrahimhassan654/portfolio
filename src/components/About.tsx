@@ -1,8 +1,8 @@
-import { CheckCircle2, Rocket, ShieldCheck, Sparkles, Workflow } from 'lucide-react'
+import { Award, CheckCircle2, Rocket, ShieldCheck, Sparkles, Workflow } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
-import { profile, socials, stats } from '@/data/portfolio'
+import { profile, socials, stats, certifications } from '@/data/portfolio'
 
 type Highlight = {
   icon: LucideIcon
@@ -43,9 +43,21 @@ export function About() {
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal className="space-y-6">
             <p className="text-base leading-relaxed text-text-muted sm:text-lg">{profile.summary}</p>
-            <p className="text-base leading-relaxed text-text-muted sm:text-lg">
-              {profile.summarySecondary}
-            </p>
+            <p className="text-base leading-relaxed text-text-muted sm:text-lg">{profile.summarySecondary}</p>
+
+            {profile.summaryHighlights && (
+              <div className="space-y-4">
+                <h3 className="font-display text-lg font-bold text-text">Core Skills & Keywords</h3>
+                <ul className="space-y-3">
+                  {profile.summaryHighlights.map((highlight, index) => (
+                    <li key={index} className="flex gap-3 text-sm leading-relaxed text-text-muted">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-indigo-400 to-fuchsia-400" />
+                      <span className="font-medium text-text">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div className="grid gap-4 sm:grid-cols-3">
               {highlights.map((item) => (
@@ -102,6 +114,38 @@ export function About() {
                 ))}
               </ul>
             </div>
+
+            {certifications.length > 0 && (
+              <div className="rounded-3xl border border-border bg-surface p-6">
+                <div className="flex items-center gap-2">
+                  <Award className="h-5 w-5 text-amber-400" />
+                  <h3 className="font-display text-base font-bold">Certifications</h3>
+                </div>
+                <ul className="mt-4 space-y-3">
+                  {certifications.map((cert) => (
+                    <li key={cert.title}>
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-3 rounded-2xl border border-transparent px-3 py-2.5 transition-colors hover:border-border hover:bg-surface-2"
+                      >
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/15 to-orange-500/15 text-amber-400">
+                          <Award className="h-4 w-4" />
+                        </span>
+                        <div className="min-w-0">
+                          <span className="block text-sm font-medium">{cert.title}</span>
+                          <span className="block truncate text-xs text-text-muted">
+                            {cert.platform} • {cert.date}
+                          </span>
+                        </div>
+                        <CheckCircle2 className="ml-auto h-4 w-4 shrink-0 text-transparent transition-colors group-hover:text-emerald-400" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </Reveal>
         </div>
       </div>
